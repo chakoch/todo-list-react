@@ -80,9 +80,10 @@ function App() {
         <button type="submit">Lägg till</button>
       </form>
       <br />
+      <label>Filtrera todo:</label>
       <input
         type="text"
-        placeholder="Filter todos"
+        placeholder="Filtrera"
         value={filter}
         onChange={(event) => setFilter(event.target.value)}
       />
