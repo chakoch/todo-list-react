@@ -2,14 +2,25 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
+  // State variabel för att spara lista över todos
   const [todos, setTodos] = useState([]);
+
+  // State variabel för att spara texten av nya todos
   const [text, setText] = useState("");
+  // State variabel för att spara dagens datum
   const today = new Date();
   const [date, setDate] = useState(today.toISOString().substr(0, 10));
+
+  // State variabel för kategori
   const [selectCategory, setSelectCategory] = useState("");
+
+  // State variabel för radio knappar
   const [radioCategory, setRadioCategory] = useState("all");
+
+  // State variabel för filter funktion
   const [filter, setFilter] = useState("");
 
+  // useEffect hook för att söka fram lagrade todos lokalt och sedan ladda upp dem
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem("todos"));
     if (storedTodos) {
@@ -17,9 +28,11 @@ function App() {
     }
   }, []);
 
+  // Event handler för att skicka in todos
   const handleSubmit = (event) => {
     event.preventDefault();
     setTodos([...todos, { text, date, category: selectCategory }]);
+    // Sparar nya todos lokalt
     localStorage.setItem(
       "todos",
       JSON.stringify([...todos, { text, date, category: selectCategory }])
@@ -29,12 +42,14 @@ function App() {
     setSelectCategory("");
   };
 
+  // Event handler för ta bort kanppen
   const handleDelete = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
 
+  //Filterfunktion 
   const filteredTodos = todos.filter((todo) => {
     if (filter) {
       return todo.text.toLowerCase().includes(filter.toLowerCase());
@@ -45,6 +60,7 @@ function App() {
     return true;
   });
 
+  //Event handler för att rensa alla todos och tar bort dom lokalt
   const handleClear = () => {
     localStorage.clear();
     setTodos([]);
