@@ -28,7 +28,7 @@ function App() {
     }
   }, []);
 
-  // Event handler för att skicka in todos
+  // Event handler för att lägga in todos
   const handleSubmit = (event) => {
     event.preventDefault();
     setTodos([...todos, { text, date, category: selectCategory }]);
