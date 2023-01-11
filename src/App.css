@@ -1,9 +1,104 @@
+
+/* ger färg och font för appen */
+.App {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+/* style header */
+h1 {
+  padding: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* style form */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/* style labels */
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: contents;
+}
+
+/* style inputs */
+input[type="text"],
+input[type="date"],
+select {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: black solid;
+  border-radius: 5px;
+}
+
+/* style lägga till knappen */
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+/* style todo list */
+ul {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+/* style todo items */
+li {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* radio */
+input[type="radio"] {
+  margin: 10px; /* add some margin between the buttons */
+}
+
+/* radio  */
+.radio-btns {
+  display: flex;
+  align-items: center; 
+}
+
 .warning {
   background-color: red;
   color: white;
 }
 
-.buttonDelete{
-  margin-left: 15px;
+/* style ta bort knappen */
+.buttonDelete {
+  background-color: #f44336;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
 }
 
+/* style rensa knappen */
+.buttonClear{
+  background-color: #f44336;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}

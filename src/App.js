@@ -104,7 +104,7 @@ function App() {
         onChange={(event) => setFilter(event.target.value)}
       />
 
-      <div>
+      <div className="radio-btns">
         <br />
         <input
           type="radio"
@@ -138,13 +138,14 @@ function App() {
         {filteredTodos.map((todo, index) => (
           <li key={index}>
             {todo.text} ({todo.date}) ({todo.category})
+            
             {new Date(todo.date).getTime() < new Date().getTime() && <span className="warning">Datumet har passerat</span>}
 
             <button className="buttonDelete" onClick={() => handleDelete(index)}>Ta bort</button>
           </li>
         ))}
       </ul>
-      <button onClick={handleClear}>Rensa alla Todo</button>
+      <button className="buttonClear" onClick={handleClear}>Rensa alla Todo</button>
     </div>
   );
 }
