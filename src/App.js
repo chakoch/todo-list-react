@@ -128,7 +128,7 @@ function App() {
           </li>
         ))}
       </ul>
-      <button onClick={handleClear}>Rensa listan</button>
+      <button onClick={handleClear}>Rensa alla Todo</button>
     </div>
   );
 }
