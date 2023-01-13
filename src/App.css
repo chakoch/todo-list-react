@@ -29,12 +29,26 @@ label {
 }
 
 /* style inputs */
-input[type="text"],
-input[type="date"],
+.writeTodo {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 95%;
+  border: black solid;
+  border-radius: 5px;
+}
+
+input[type="date"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 95%;
+  border: black solid;
+  border-radius: 5px;
+}
+
 select {
   padding: 10px;
   margin-bottom: 20px;
-  width: 100%;
+  width: 150px;
   border: black solid;
   border-radius: 5px;
 }
@@ -48,6 +62,14 @@ button[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   float: right;
+}
+
+.filter {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 30%;
+  border: black solid;
+  border-radius: 5px;
 }
 
 /* style todo list */
@@ -65,6 +87,13 @@ li {
   border-radius: 5px;
 }
 
+/*style for old todos*/
+.old-todo{
+    background-color: red;
+    color: white;
+}
+
+
 /* radio */
 input[type="radio"] {
   margin: 10px; /* add some margin between the buttons */
@@ -76,13 +105,9 @@ input[type="radio"] {
   align-items: center; 
 }
 
-.warning {
-  background-color: red;
-  color: white;
-}
 
 /* style ta bort knappen */
-.buttonDelete {
+.delete-btn {
   background-color: #f44336;
   color: white;
   padding: 12px 20px;

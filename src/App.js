@@ -66,13 +66,22 @@ function App() {
     setTodos([]);
   };
 
+  const todoClasses = (date) => {
+    let classes = "";
+    if(date < today.toISOString().substr(0, 10)){
+        classes += " old-todo";
+    }
+    return classes;
+};
+
+
   return (
     <div className="App">
       <h1>My Todo in React</h1>
       <form onSubmit={handleSubmit}>
         <label>Lägg till en todo:</label>
         <br />
-        <input
+        <input className="writeTodo"
           type="text"
           placeholder="Skriv todo"
           value={text}
@@ -98,6 +107,7 @@ function App() {
       <br />
       <label>Filtrera todo:</label>
       <input
+        className="filter"
         type="text"
         placeholder="Filtrera"
         value={filter}
@@ -136,13 +146,11 @@ function App() {
       </div>
       <ul>
         {filteredTodos.map((todo, index) => (
-          <li key={index}>
-            {todo.text} ({todo.date}) ({todo.category})
-            
-            {new Date(todo.date).getTime() < new Date().getTime() && <span className="warning">Datumet har passerat</span>}
-
-            <button className="buttonDelete" onClick={() => handleDelete(index)}>Ta bort</button>
+          <li className={todoClasses(todo.date)} key={index}>
+            {todo.text} ({todo.date}) {todo.category}
+            <button type="button" className="delete-btn" onClick={() => handleDelete(index)}>Delete</button>
           </li>
+
         ))}
       </ul>
       <button className="buttonClear" onClick={handleClear}>Rensa alla Todo</button>
