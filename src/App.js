@@ -148,7 +148,7 @@ function App() {
         {filteredTodos.map((todo, index) => (
           <li className={todoClasses(todo.date)} key={index}>
             {todo.text} ({todo.date}) {todo.category}
-            <button type="button" className="delete-btn" onClick={() => handleDelete(index)}>Delete</button>
+            <button type="button" className="delete-btn" onClick={() => handleDelete(index)}>Ta bort</button>
           </li>
 
         ))}
