@@ -7,6 +7,7 @@ function App() {
 
   // State variabel för att spara texten av nya todos
   const [text, setText] = useState("");
+  
   // State variabel för att spara dagens datum
   const today = new Date();
   const [date, setDate] = useState(today.toISOString().substr(0, 10));
@@ -147,7 +148,7 @@ function App() {
       <ul>
         {filteredTodos.map((todo, index) => (
           <li className={todoClasses(todo.date)} key={index}>
-            {todo.text} ({todo.date}) {todo.category}
+            {todo.text} {todo.date} ({todo.category})
             <button type="button" className="delete-btn" onClick={() => handleDelete(index)}>Ta bort</button>
           </li>
 
