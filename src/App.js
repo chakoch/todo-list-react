@@ -65,7 +65,7 @@ function App() {
     localStorage.clear();
     setTodos([]);
   };
-
+ // Initierar tom string och kontrollera om dagens datum, om inte retunerar röd fält i css
   const todoClasses = (date) => {
     let classes = "";
     if(date < today.toISOString().substr(0, 10)){
