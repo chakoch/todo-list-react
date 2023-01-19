@@ -7,7 +7,7 @@ function App() {
 
   // State variabel för att spara texten av nya todos
   const [text, setText] = useState("");
-  
+
   // State variabel för att spara dagens datum
   const today = new Date();
   const [date, setDate] = useState(today.toISOString().substr(0, 10));
@@ -50,15 +50,12 @@ function App() {
     setTodos(newTodos);
   };
 
-  //Filterfunktion 
+  //Filterfunktion
   const filteredTodos = todos.filter((todo) => {
-    if (filter) {
-      return todo.text.toLowerCase().includes(filter.toLowerCase());
-    }
-    if (radioCategory !== "all") {
-      return todo.category === radioCategory;
-    }
-    return true;
+    return (
+      todo.text.toLowerCase().includes(filter.toLowerCase()) &&
+      (radioCategory === "all" || todo.category === radioCategory)
+    );
   });
 
   //Event handler för att rensa alla todos och tar bort dom lokalt
@@ -66,15 +63,14 @@ function App() {
     localStorage.clear();
     setTodos([]);
   };
- // Initierar tom string och kontrollera om dagens datum, om inte retunerar röd fält i css
+  // Initierar tom string och kontrollera om dagens datum, om inte retunerar röd fält i css
   const todoClasses = (date) => {
     let classes = "";
-    if(date < today.toISOString().substr(0, 10)){
-        classes += " old-todo";
+    if (date < today.toISOString().substr(0, 10)) {
+      classes += " old-todo";
     }
     return classes;
-};
-
+  };
 
   return (
     <div className="App">
@@ -82,7 +78,8 @@ function App() {
       <form onSubmit={handleSubmit}>
         <label>Lägg till en todo:</label>
         <br />
-        <input className="writeTodo"
+        <input
+          className="writeTodo"
           type="text"
           placeholder="Skriv todo"
           value={text}
@@ -149,12 +146,19 @@ function App() {
         {filteredTodos.map((todo, index) => (
           <li className={todoClasses(todo.date)} key={index}>
             {todo.text} {todo.date} ({todo.category})
-            <button type="button" className="delete-btn" onClick={() => handleDelete(index)}>Ta bort</button>
+            <button
+              type="button"
+              className="delete-btn"
+              onClick={() => handleDelete(index)}
+            >
+              Ta bort
+            </button>
           </li>
-
         ))}
       </ul>
-      <button className="buttonClear" onClick={handleClear}>Rensa alla Todo</button>
+      <button className="buttonClear" onClick={handleClear}>
+        Rensa alla Todo
+      </button>
     </div>
   );
 }
